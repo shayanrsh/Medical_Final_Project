@@ -82,7 +82,7 @@ if __name__ == "__main__":
     trained_unet = model_train(unet_ins,
                                batch_size=8,
                                learning_rate=0.1,
-                               epochs=5,
+                               epochs=50,
                                save_every=1,
                                evaluation_every=30,
                                is_eval=True)
