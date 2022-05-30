@@ -31,16 +31,16 @@ def model_train(network, epochs, batch_size, learning_rate, save_every, evaluati
         m_tensor = m_tensor[shuffle, :, :, :]
 
         for iteration in range(iteration_number):
-            if not iteration == iteration_number - 1:
-                start, end = iteration * batch_size, (iteration + 1) * batch_size
-                batch_image = torch.Tensor(x_tensor[start: end, :, :, :])
-                batch_label = torch.Tensor(y_tensor[start: end, 0: 1, :, :])
-                batch_mask = torch.Tensor(m_tensor[start: end, 0: 1, :, :])
-            else:
+            if iteration == iteration_number - 1:
                 start = iteration * batch_size
                 batch_image = torch.Tensor(x_tensor[start:, :, :, :])
                 batch_label = torch.Tensor(y_tensor[start:, 0: 1, :, :])
                 batch_mask = torch.Tensor(m_tensor[start:, 0: 1, :, :])
+            else:
+                start, end = iteration * batch_size, (iteration + 1) * batch_size
+                batch_image = torch.Tensor(x_tensor[start: end, :, :, :])
+                batch_label = torch.Tensor(y_tensor[start: end, 0: 1, :, :])
+                batch_mask = torch.Tensor(m_tensor[start: end, 0: 1, :, :])
             criterion = nn.BCELoss()
             optimizer.zero_grad()
             batch_pred = network(batch_image)
@@ -51,18 +51,19 @@ def model_train(network, epochs, batch_size, learning_rate, save_every, evaluati
                     print("Eval for Epoch: {}, Iter: {}".format(epoch + 1, iteration + 1))
                     eval_print_metrics(batch_label, batch_pred, batch_mask)
 
-            if not iteration == iteration_number - 1:
-                epoch_total_loss += loss.item()
-            else:
+            if iteration == iteration_number - 1:
                 epoch_total_loss += loss.item()
                 epoch_avg_loss = epoch_total_loss / (iteration + 1)
                 print("Epoch {} finished, avg_loss : {:.4f}".format(epoch + 1, epoch_avg_loss))
+            else:
+                epoch_total_loss += loss.item()
             loss.backward()
             optimizer.step()
-        if epoch % save_every == 0:
-            torch.save(network.state_dict(),
-                       "./storage/checkpoint/Unet_epoch{}_loss{:.4f}_retina.model".format(str(epoch + 1).zfill(5),
-                                                                                          epoch_avg_loss))
+        if save_every != 0:
+            continue
+        torch.save(network.state_dict(),
+                   "./storage/checkpoint/Unet_epoch{}_loss{:.4f}_retina.model".format(str(epoch + 1).zfill(5),
+                                                                                      epoch_avg_loss))
     return network
 
 
