@@ -100,6 +100,7 @@ class UpsampleConv(nn.Module):
         x = self.convtwice(x)
         return x
 
+
 class ConvOut(nn.Module):
     """
     last layer for generating probability map
@@ -119,10 +120,6 @@ class ConvOut(nn.Module):
         output_ = self.convout(x)
         # print(output_.size())
         return output_
-
-
-
-
 
 
 class Unet(nn.Module):
@@ -162,8 +159,6 @@ class Unet(nn.Module):
         u4 = self.up4(u3, d1)
         output_ = self.out(u4)
         return output_
-
-
 
 
 def eval_print_metrics(bat_label, bat_pred, bat_mask):
@@ -207,4 +202,3 @@ def paste_and_save(bat_img, bat_label, bat_pred_class, batch_size, cur_bat_num, 
 
         target.save(os.path.join(save_img, "result_{}.png".format(res_id)))
     return
-

@@ -1,17 +1,9 @@
-# -*- coding: utf-8 -*-
-# filename: dataset_loader.py
-# brief: load DRIVE dataset and form as tensors
-# author: Jia Zhuang
-# date: 2020-09-18
-
-from PIL import Image
-import numpy as np
-import torch
-import matplotlib.pyplot as plt
-from torch import nn
-import torch.nn.functional as F
 import os
 from glob import glob
+
+import numpy as np
+from PIL import Image
+
 
 # somehting
 

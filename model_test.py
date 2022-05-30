@@ -1,11 +1,11 @@
+import os
+import sys
+from glob import glob
+
 import numpy as np
 import torch
-import os
-from glob import glob
-import sys
 
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
-
 
 sys.path.insert(1, './src')
 
