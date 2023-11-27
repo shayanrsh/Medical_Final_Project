@@ -31,10 +31,10 @@ Overall, SGD seems to have the most promising performance.
 
 ## References
 
-: W. Weng and X. Zhu, "U-Net: Convolutional Networks for Biomedical Image Segmentation," *IEEE Access*, vol. 9, pp. 16591–16603, May 2015, doi: [10.48550/arxiv.1505.04597].
-: W. Weng and X. Zhu, "INet: Convolutional Networks for Biomedical Image Segmentation," *IEEE Access*, vol. 9, pp. 16591–16603, 2021, doi: [10.1109/ACCESS.2021.3053408].
-: [DRIVE: Digital Retinal Images for Vessel Extraction](https://www.isi.uu.nl/Research/Databases/DRIVE/)
-: [U-Net: Convolutional Networks for Biomedical Image Segmentation](https://arxiv.org/abs/1505.04597)
-: [Retinal Vessel Segmentation Using U-Net Architecture](https://www.researchgate.net/publication/344704945_Retinal_Vessel_Segmentation_Using_U-Net_Architecture)
-: [U-Net implementation in PyTorch](https://github.com/milesial/Pytorch-UNet)
-: [U-Net implementation in TensorFlow](https://github.com/jakeret/tf_unet)
+- W. Weng and X. Zhu, "U-Net: Convolutional Networks for Biomedical Image Segmentation," *IEEE Access*, vol. 9, pp. 16591–16603, May 2015, doi: [10.48550/arxiv.1505.04597].
+- W. Weng and X. Zhu, "INet: Convolutional Networks for Biomedical Image Segmentation," *IEEE Access*, vol. 9, pp. 16591–16603, 2021, doi: [10.1109/ACCESS.2021.3053408].
+- [DRIVE: Digital Retinal Images for Vessel Extraction](https://www.isi.uu.nl/Research/Databases/DRIVE/)
+- [U-Net: Convolutional Networks for Biomedical Image Segmentation](https://arxiv.org/abs/1505.04597)
+- [Retinal Vessel Segmentation Using U-Net Architecture](https://www.researchgate.net/publication/344704945_Retinal_Vessel_Segmentation_Using_U-Net_Architecture)
+- [U-Net implementation in PyTorch](https://github.com/milesial/Pytorch-UNet)
+- [U-Net implementation in TensorFlow](https://github.com/jakeret/tf_unet)
